@@ -1,0 +1,57 @@
+{
+  "name": "pulpscript-syntax",
+  "version": "0.0.1",
+  "publisher": "BlakeGearin",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "license": "GPL-3.0-only",
+  "displayName": "PulpScript Syntax",
+  "description": "Unofficial syntax support for PulpScript",
+  "categories": [
+    "Programming Languages"
+  ],
+  "keywords": [
+    "pulp",
+    "pulpscript",
+    "playdate"
+  ],
+  "galleryBanner": {
+    "color": "#ffc833",
+    "theme": "light"
+  },
+  "contributes": {
+    "languages": [
+      {
+        "id": "pulpscript",
+        "aliases": [
+          "pulpscript",
+          "pulp"
+        ],
+        "extensions": [
+          ".ps",
+          ".pulp",
+          ".pulpscript"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "pulpscript",
+        "scopeName": "text.pulpscript",
+        "path": "./syntaxes/pulpscript.tmLanguage.json"
+      }
+    ]
+  },
+  "homepage": "https://github.com/blakegearin/pulpscript-syntax-vscode",
+  "bugs": {
+    "url": "https://github.com/blakegearin/pulpscript-syntax-vscode/issues",
+    "email": "blakegearin@pm.me"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/blakegearin/pulpscript-syntax-vscode.git"
+  },
+  "icon": "images/icon.png"
+}

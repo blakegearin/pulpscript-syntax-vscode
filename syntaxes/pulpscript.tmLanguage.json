@@ -1,0 +1,301 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "PulpScript",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#decrement"
+		},
+		{
+			"include": "#increment"
+		},
+		{
+			"include": "#numeric"
+		},
+		{
+			"include": "#comparisons"
+		},
+		{
+			"include": "#augmented-assignments"
+		},
+		{
+			"include": "#spaces"
+		},
+		{
+			"include": "#assignment"
+		},
+		{
+			"include": "#functions"
+		},
+		{
+			"include": "#built-in-events"
+		},
+		{
+			"include": "#controls"
+		},
+		{
+			"include": "#colons"
+		},
+		{
+			"include": "#commas"
+		},
+		{
+			"include": "#config"
+		},
+		{
+			"include": "#event"
+		},
+		{
+			"include": "#variables"
+		}
+	],
+	"repository": {
+		"colons": {
+			"patterns": [
+				{
+					"name": "punctuation.definition.constant.pulpscript",
+					"match": ":"
+				}
+			]
+		},
+		"controls": {
+			"patterns": [
+				{
+					"name": "keyword.control.pulpscript",
+					"match": "\\b(if|then|on|while|do|else|elseif|end|menu|ask|option|once|at)\\b"
+				}
+			]
+		},
+		"functions": {
+			"patterns": [
+				{
+					"name": "support.function.pulpscript",
+					"match": "\\b(datetime|log|dump|say|fin|swap|frame|play|wait|shake|tell|to|call|emit|mimic|ignore|listen|act|draw|hide|window|label(:( )?)?|fill|crop|goto|sound|stop|loop|bpm|store|restore|toss|random|floor|ceil|round|sine|cosine|tangent|radians|degrees|invert|solid|type|id|name|embed:( )?)\\b"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.pulpscript",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"include": "#string-interpolation"
+				}
+			]
+		},
+		"string-interpolation": {
+			"begin": "{",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.template-expression.begin.pulpscript"
+				}
+			},
+			"end": "}",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.template-expression.end.pulpscript"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#spaces"
+				},
+				{
+					"include": "#numeric"
+				},
+				{
+					"include": "#functions"
+				},
+				{
+					"include": "#config"
+				},
+				{
+					"include": "#event"
+				},
+				{
+					"include": "#commas"
+				},
+				{
+					"include": "#colons"
+				},
+				{
+					"include": "#accessor"
+				},
+				{
+					"name": "variable.pulpscript",
+					"match": "(.)"
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.double-slash.pulpscript",
+					"match": "//.*"
+				}
+			]
+		},
+		"accessor": {
+			"patterns": [
+				{
+					"name": "punctuation.accessor.pulpscript",
+					"match": "\\b(\\.)\\b"
+				}
+			]
+		},
+		"config-properties": {
+			"patterns": [
+				{
+					"name": "variable.other.property.pulpscript",
+					"match": "(autoAct|inputRepeatDelay|inputRepeatBetween|followCenterX|followCenterY|followOverflowTile|allowDismissRootMenu|sayAdvanceDelay|textSpeed|textSkip|follow|inputRepeat)\\b"
+				}
+			]
+		},
+		"config": {
+			"patterns": [
+				{
+					"include": "#accessor"
+				},
+				{
+					"include": "#config-properties"
+				},
+				{
+					"name": "variable.language.pulpscript",
+					"match": "\\bconfig\\b"
+				}
+			]
+		},
+		"event-properties": {
+			"patterns": [
+				{
+					"name": "variable.other.property.pulpscript",
+					"match": "\\b(x|y|dx|dy|tx|ty|px|py|aa|ra|ax|ay|az|game|room)\\b"
+				}
+			]
+		},
+		"event": {
+			"patterns": [
+				{
+					"include": "#accessor"
+				},
+				{
+					"include": "#event-properties"
+				},
+				{
+					"name": "variable.language.pulpscript",
+					"match": "\\bevent\\b"
+				}
+			]
+		},
+		"commas": {
+			"patterns": [
+				{
+					"name": "punctuation.separator.comma.pulpscript",
+					"match": ","
+				}
+			]
+		},
+		"built-in-events": {
+			"begin": "\\b(on)\\b( )",
+			"beginCaptures": {
+				"0": {
+					"name": "text.pulpscript"
+				},
+				"1": {
+					"name": "keyword.control.pulpscript"
+				}
+			},
+			"end": "( )(do)",
+			"endCaptures": {
+				"0": {
+					"name": "keyword.control.pulpscript"
+				},
+				"1": {
+					"name": "text.pulpscript"
+				}
+			},
+			"patterns": [
+				{
+					"name": "constant.language.pulpscript",
+					"match": "(load|start|enter|exit|finish|update|bump|loop|draw|confirm|cancel|crank|dock|undock|draw|interact|collect|change|select|dismiss|invalid|any)"
+				},
+				{
+					"name": "variable.pulpscript",
+					"match": "(\\w)*"
+				}
+			]
+		},
+		"numeric": {
+			"patterns": [
+				{
+					"name": "constant.numeric.pulpscript",
+					"match": "[0-9]"
+				}
+			]
+		},
+		"decrement": {
+			"patterns": [
+				{
+					"name": "keyword.operator.decrement.pulpscript",
+					"match": "--"
+				}
+			]
+		},
+		"increment": {
+			"name": "keyword.operator.increment.pulpscript",
+			"patterns": [
+				{
+					"name": "keyword.operator.increment.pulpscript",
+					"match": "\\+\\+"
+				}
+			]
+		},
+		"comparisons": {
+			"patterns": [
+				{
+					"name": "keyword.operator.comparison.pulpscript",
+					"match": "(==|<=|>=)"
+				}
+			]
+		},
+		"augmented-assignments": {
+			"patterns": [
+				{
+					"name": "keyword.operator.assignment.augmented.pulpscript",
+					"match": "(-=|\\+=|\\*=|\/=)"
+				}
+			]
+		},
+		"assignment": {
+			"patterns": [
+				{
+					"name": "keyword.operator.assignment.pulpscript",
+					"match": "="
+				}
+			]
+		},
+		"spaces": {
+			"patterns": [
+				{
+					"name": "text.pulpscript",
+					"match": " "
+				}
+			]
+		},
+		"variables": {
+			"patterns": [
+				{
+					"name": "variable.pulpscript",
+					"match": "(.)"
+				}
+			]
+		}
+	},
+	"scopeName": "text.pulpscript"
+}
