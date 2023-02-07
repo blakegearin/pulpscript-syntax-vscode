@@ -6,6 +6,21 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+## [0.2.0] - 2023-02-07
+
+### Added
+
+- Added supported pattern `coords`
+
+### Changed
+
+- Updated `comparisons` to support all possible variations (integers, floats, variables, strings, with & without spaces)
+- Updated `numeric` to be `floats`
+
+### Removed
+
+- Removed extra `patterns` that aren't necessary
+
 ## [0.1.1] - 2023-02-07
 
 ### Changed
