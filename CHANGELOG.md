@@ -6,6 +6,12 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+## [0.1.1] - 2023-02-07
+
+### Changed
+
+- Updated `comparisons` to support strings
+
 ## [0.1.0] - 2023-02-06
 
 ### Added
