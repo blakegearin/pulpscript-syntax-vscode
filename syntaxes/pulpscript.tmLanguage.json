@@ -189,7 +189,7 @@
 			"patterns": [
 				{
 					"name": "constant.numeric.pulpscript",
-					"match": "[^_][0-9]"
+					"match": "[^\\w][0-9]"
 				}
 			]
 		},
