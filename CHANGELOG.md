@@ -6,6 +6,27 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+## [0.1.0] - 2023-02-06
+
+### Added
+
+- Added supported pattern `datetime` and its read-only properties
+- Added preview image to README
+
+### Changed
+
+- Updated order of `repository` objects to match `patterns`
+- Updated location of objects used once to be nested
+  - `string-interpolation` under `strings`
+  - `config-properties` under `config`
+  - `event-properties` under `event`
+- Added word boundaries to `built-in-events`
+- Updated `numeric` to allow numbers in variable names
+
+### Removed
+
+- `do`/`end` and `then`/`end` from `autoClosingPairs`
+
 ## [0.0.1] - 2023-02-02
 
 ### Added

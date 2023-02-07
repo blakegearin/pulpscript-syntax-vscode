@@ -2,15 +2,13 @@
 
 This is an unofficial extension providing syntax highlighting for PulpScript. It is not sponsored, endorsed, licensed by, or affiliated with Panic.
 
-<p>
-  <img
-    height="40%"
-    width="40%"
-    src="images/preview.png"
-    alt="syntax highlighting preview"
-    title="syntax highlighting preview"
-  />
-</p>
+<img
+  height="40%"
+  width="40%"
+  src="https://raw.githubusercontent.com/blakegearin/pulpscript-syntax-vscode/main/images/preview.png"
+  alt="syntax highlighting preview"
+  title="syntax highlighting preview"
+/>
 
 ## Filenames
 
