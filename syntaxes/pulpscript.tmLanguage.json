@@ -147,25 +147,31 @@
 					"name": "variable.pulpscript"
 				}
 			},
-			"end": "( )?[0-9]*(\\w*)\\b (then)",
+			"end": "[0-9]*\\b (then)",
 			"endCaptures": {
 				"0": {
 					"name": "constant.numeric.pulpscript"
 				},
 				"1": {
 					"name": "keyword.control.pulpscript"
-				},
-				"2": {
-					"name": "variable.pulpscript"
-				},
-				"3": {
-					"name": "keyword.control.pulpscript"
 				}
 			},
 			"patterns": [
 				{
+					"include": "#controls"
+				},
+				{
+					"include": "#numeric"
+				},
+				{
+					"include": "#strings"
+				},
+				{
 					"name": "keyword.operator.comparison.pulpscript",
 					"match": "(==|<=|>=)"
+				},
+				{
+					"include": "#variables"
 				}
 			]
 		},
