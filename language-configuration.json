@@ -6,8 +6,6 @@
     "autoClosingPairs": [
         ["{", "}"],
         ["\"", "\""],
-        ["do", "end"],
-        ["then", "end"],
     ],
     "surroundingPairs": [
         ["{", "}"],
