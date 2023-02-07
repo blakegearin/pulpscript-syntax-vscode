@@ -18,13 +18,19 @@
 			"include": "#comparisons"
 		},
 		{
+			"include": "#commas"
+		},
+		{
 			"include": "#augmented-assignments"
 		},
 		{
 			"include": "#assignment"
 		},
 		{
-			"include": "#numeric"
+			"include": "#coords"
+		},
+		{
+			"include": "#floats"
 		},
 		{
 			"include": "#spaces"
@@ -42,9 +48,6 @@
 			"include": "#colons"
 		},
 		{
-			"include": "#commas"
-		},
-		{
 			"include": "#event"
 		},
 		{
@@ -59,12 +62,8 @@
 	],
 	"repository": {
 		"comments": {
-			"patterns": [
-				{
-					"name": "comment.line.double-slash.pulpscript",
-					"match": "//.*"
-				}
-			]
+			"name": "comment.line.double-slash.pulpscript",
+			"match": "//.*"
 		},
 		"strings": {
 			"name": "string.quoted.double.pulpscript",
@@ -89,7 +88,7 @@
 							"include": "#spaces"
 						},
 						{
-							"include": "#numeric"
+							"include": "#floats"
 						},
 						{
 							"include": "#functions"
@@ -118,102 +117,102 @@
 			]
 		},
 		"decrement": {
-			"patterns": [
-				{
-					"name": "keyword.operator.decrement.pulpscript",
-					"match": "--"
-				}
-			]
+			"name": "keyword.operator.decrement.pulpscript",
+			"match": "--"
 		},
 		"increment": {
 			"name": "keyword.operator.increment.pulpscript",
+			"match": "\\+\\+"
+		},
+		"comparisons": {
 			"patterns": [
 				{
-					"name": "keyword.operator.increment.pulpscript",
-					"match": "\\+\\+"
+					"begin": "\\b([0-9]+)(==|<=|>=)([0-9]+)",
+					"beginCaptures": {
+						"0": {
+							"name": "constant.numeric.pulpscript"
+						},
+						"1": {
+							"name": "constant.numeric.pulpscript"
+						},
+						"2": {
+							"name": "keyword.operator.comparison.pulpscript"
+						}
+					},
+					"end": "\\b"
+				},
+				{
+					"begin": "\\b(\\w+)(==|<=|>=)([0-9]+)",
+					"beginCaptures": {
+						"0": {
+							"name": "constant.numeric.pulpscript"
+						},
+						"1": {
+							"name": "variable.pulpscript"
+						},
+						"2": {
+							"name": "keyword.operator.comparison.pulpscript"
+						}
+					},
+					"end": "\\b"
+				},
+				{
+					"begin": "\\b([0-9]+)(==|<=|>=)(\\w+)",
+					"beginCaptures": {
+						"0": {
+							"name": "variable.pulpscript"
+						},
+						"1": {
+							"name": "constant.numeric.pulpscript"
+						},
+						"2": {
+							"name": "keyword.operator.comparison.pulpscript"
+						}
+					},
+					"end": "\\b"
+				},
+				{
+					"name": "keyword.operator.comparison.pulpscript",
+					"match": "(==|<=|>=)"
 				}
 			]
 		},
-		"comparisons": {
-			"begin": "(if|elseif) (\\w*)( )?",
+		"augmented-assignments": {
+			"name": "keyword.operator.assignment.augmented.pulpscript",
+			"match": "(-=|\\+=|\\*=|\/=)"
+		},
+		"assignment": {
+			"name": "keyword.operator.assignment.pulpscript",
+			"match": "="
+		},
+		"coords": {
+			"begin": "\\b([0-9]+)",
 			"beginCaptures": {
 				"0": {
-					"name": "text.pulpscript"
-				},
-				"1": {
-					"name": "keyword.control.pulpscript"
-				},
-				"2": {
-					"name": "variable.pulpscript"
+					"name": "constant.numeric.pulpscript"
 				}
 			},
-			"end": "[0-9]*\\b (then)",
+			"end": "(,)?([0-9]+)?\\b",
 			"endCaptures": {
 				"0": {
 					"name": "constant.numeric.pulpscript"
 				},
 				"1": {
-					"name": "keyword.control.pulpscript"
+					"name": "punctuation.separator.comma.pulpscript"
 				}
-			},
-			"patterns": [
-				{
-					"include": "#controls"
-				},
-				{
-					"include": "#numeric"
-				},
-				{
-					"include": "#strings"
-				},
-				{
-					"name": "keyword.operator.comparison.pulpscript",
-					"match": "(==|<=|>=)"
-				},
-				{
-					"include": "#variables"
-				}
-			]
+			}
 		},
-		"augmented-assignments": {
-			"patterns": [
-				{
-					"name": "keyword.operator.assignment.augmented.pulpscript",
-					"match": "(-=|\\+=|\\*=|\/=)"
-				}
-			]
-		},
-		"assignment": {
-			"patterns": [
-				{
-					"name": "keyword.operator.assignment.pulpscript",
-					"match": "="
-				}
-			]
-		},
-		"numeric": {
-			"patterns": [
-				{
-					"name": "constant.numeric.pulpscript",
-					"match": "[^\\w][0-9]"
-				}
-			]
+		"floats": {
+			"name": "constant.numeric.pulpscript",
+			"match": "[^a-zA-Z_][0-9]+"
 		},
 		"spaces": {
-			"patterns": [
-				{
-					"name": "text.pulpscript",
-					"match": " "
-				}
-			]
+			"name": "text.pulpscript",
+			"match": " "
 		},
 		"functions": {
-			"patterns": [
-				{
-					"name": "support.function.pulpscript",
-					"match": "\\b(log|dump|say|fin|swap|frame|play|wait|shake|tell|to|call|emit|mimic|ignore|listen|act|draw|hide|window|label(:( )?)?|fill|crop|goto|sound|stop|loop|bpm|store|restore|toss|random|floor|ceil|round|sine|cosine|tangent|radians|degrees|invert|solid|type|id|name|embed:( )?)\\b"
-				}
-			]
+			"name": "support.function.pulpscript",
+			"match": "\\b(log|dump|say|fin|swap|frame|play|wait|shake|tell|to|call|emit|mimic|ignore|listen|act|draw|hide|window|label(:( )?)?|fill|crop|goto|sound|stop|loop|bpm|store|restore|toss|random|floor|ceil|round|sine|cosine|tangent|radians|degrees|invert|solid|type|id|name|embed:( )?)\\b"
 		},
 		"built-in-events": {
 			"begin": "\\b(on)\\b( )",
@@ -246,28 +245,16 @@
 			]
 		},
 		"controls": {
-			"patterns": [
-				{
-					"name": "keyword.control.pulpscript",
-					"match": "\\b(if|then|on|while|do|else|elseif|end|menu|ask|option|once|at)\\b"
-				}
-			]
+			"name": "keyword.control.pulpscript",
+			"match": "\\b(if|then|on|while|do|else|elseif|end|menu|ask|option|once|at)\\b"
 		},
 		"colons": {
-			"patterns": [
-				{
-					"name": "punctuation.definition.constant.pulpscript",
-					"match": ":"
-				}
-			]
+			"name": "punctuation.definition.constant.pulpscript",
+			"match": ":"
 		},
 		"commas": {
-			"patterns": [
-				{
-					"name": "punctuation.separator.comma.pulpscript",
-					"match": ","
-				}
-			]
+			"name": "punctuation.separator.comma.pulpscript",
+			"match": ","
 		},
 		"event": {
 			"patterns": [
@@ -327,20 +314,12 @@
 			]
 		},
 		"variables": {
-			"patterns": [
-				{
-					"name": "variable.pulpscript",
-					"match": "(.)"
-				}
-			]
+			"name": "variable.pulpscript",
+			"match": "(.)"
 		},
 		"accessor": {
-			"patterns": [
-				{
-					"name": "punctuation.accessor.pulpscript",
-					"match": "\\b(\\.)\\b"
-				}
-			]
+			"name": "punctuation.accessor.pulpscript",
+			"match": "\\b(\\.)\\b"
 		}
 	},
 	"scopeName": "text.pulpscript"
