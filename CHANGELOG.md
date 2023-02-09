@@ -6,6 +6,16 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+## [0.2.1] - 2023-02-09
+
+### Added
+
+- Added `in` to `controls`
+
+### Updated
+
+- Moved `to` from `functions` to `controls`
+
 ## [0.2.0] - 2023-02-07
 
 ### Added
