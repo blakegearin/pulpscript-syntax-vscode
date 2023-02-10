@@ -6,6 +6,12 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+## [0.2.2] - 2023-02-10
+
+### Added
+
+- Added missing `!=` to `controls`
+
 ## [0.2.1] - 2023-02-09
 
 ### Added
