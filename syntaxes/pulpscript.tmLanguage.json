@@ -127,7 +127,7 @@
 		"comparisons": {
 			"patterns": [
 				{
-					"begin": "\\b([0-9]+)(==|!=|<=|>=)([0-9]+)",
+					"begin": "\\b([0-9]+)(==|!=|<(=?)|>(=?))([0-9]+)",
 					"beginCaptures": {
 						"0": {
 							"name": "constant.numeric.pulpscript"
@@ -142,7 +142,7 @@
 					"end": "\\b"
 				},
 				{
-					"begin": "\\b(\\w+)(==|!=|<=|>=)([0-9]+)",
+					"begin": "\\b(\\w+)(==|!=|<(=?)|>(=?))([0-9]+)",
 					"beginCaptures": {
 						"0": {
 							"name": "constant.numeric.pulpscript"
@@ -157,7 +157,7 @@
 					"end": "\\b"
 				},
 				{
-					"begin": "\\b([0-9]+)(==|!=|<=|>=)(\\w+)",
+					"begin": "\\b([0-9]+)(==|!=|<(=?)|>(=?))(\\w+)",
 					"beginCaptures": {
 						"0": {
 							"name": "variable.pulpscript"
@@ -173,7 +173,7 @@
 				},
 				{
 					"name": "keyword.operator.comparison.pulpscript",
-					"match": "(==|!=|<=|>=)"
+					"match": "(==|!=|<(=?)|>(=?))"
 				}
 			]
 		},
