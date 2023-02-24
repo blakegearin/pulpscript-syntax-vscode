@@ -31,7 +31,10 @@
         "extensions": [
           ".ps",
           ".pulp",
-          ".pulpscript"
+          ".pulpscript",
+          ".ps.txt",
+          ".pulp.txt",
+          ".pulpscript.txt"
         ],
         "configuration": "./language-configuration.json"
       }

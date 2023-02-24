@@ -17,6 +17,9 @@ The following filename extensions are supported:
   - `.ps`
   - `.pulp`
   - `.pulpscript`
+  - `.ps.txt`
+  - `.pulp.txt`
+  - `.pulpscript.txt`
 
 ## Links
 
