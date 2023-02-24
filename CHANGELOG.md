@@ -6,6 +6,12 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+## [0.3.3] - 2023-02-23
+
+### Added
+
+- Added support for `.txt` filename extensions
+
 ## [0.2.3] - 2023-02-10
 
 ### Added
