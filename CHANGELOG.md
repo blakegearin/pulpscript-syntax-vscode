@@ -6,6 +6,12 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+## [0.3.4] - 2023-04-01
+
+### Added
+
+- Updated `floats` to permit multiple digits in a variable
+
 ## [0.3.3] - 2023-02-23
 
 ### Added
