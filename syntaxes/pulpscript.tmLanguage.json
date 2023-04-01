@@ -204,7 +204,7 @@
 		},
 		"floats": {
 			"name": "constant.numeric.pulpscript",
-			"match": "[^a-zA-Z_][0-9]+"
+			"match": "[^\\w]\\d+"
 		},
 		"spaces": {
 			"name": "text.pulpscript",
